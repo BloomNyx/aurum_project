@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* AURUM Luxury Jewelry - Dark Luxury Theme */
+  /* Color Palette */
+  --bg: #070707;
+  --card: #111111;
+  --gold: #d6b36a;
+  --gold-light: #f5e7bf;
+  --text: #f8f5ee;
+  --muted: #8d8d8d;
+
+  /* Tailwind Theme */
+  --primary: #d6b36a;
+  --primary-foreground: #070707;
+  --sidebar-primary: #d6b36a;
+  --sidebar-primary-foreground: #070707;
+  --chart-1: #d6b36a;
+  --chart-2: #b8942f;
+  --chart-3: #9a7620;
+  --chart-4: #7c5810;
+  --chart-5: #5e3a00;
+  --radius: 1.875rem;
+  --background: #070707;
+  --foreground: #f8f5ee;
+  --card: #111111;
+  --card-foreground: #f8f5ee;
+  --popover: #111111;
+  --popover-foreground: #f8f5ee;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #d6b36a;
+  --muted: #8d8d8d;
+  --muted-foreground: #b0b0b0;
+  --accent: #d6b36a;
+  --accent-foreground: #070707;
+  --destructive: #ff4444;
+  --destructive-foreground: #f8f5ee;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #d6b36a;
+  --sidebar: #111111;
+  --sidebar-foreground: #f8f5ee;
+  --sidebar-accent: #d6b36a;
+  --sidebar-accent-foreground: #070707;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: #d6b36a;
+}
+
+.dark {
+  --primary: #d6b36a;
+  --primary-foreground: #070707;
+  --sidebar-primary: #d6b36a;
+  --sidebar-primary-foreground: #070707;
+  --background: #070707;
+  --foreground: #f8f5ee;
+  --card: #111111;
+  --card-foreground: #f8f5ee;
+  --popover: #111111;
+  --popover-foreground: #f8f5ee;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #d6b36a;
+  --muted: #8d8d8d;
+  --muted-foreground: #b0b0b0;
+  --accent: #d6b36a;
+  --accent-foreground: #070707;
+  --destructive: #ff4444;
+  --destructive-foreground: #f8f5ee;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #d6b36a;
+  --chart-1: #d6b36a;
+  --chart-2: #b8942f;
+  --chart-3: #9a7620;
+  --chart-4: #7c5810;
+  --chart-5: #5e3a00;
+  --sidebar: #111111;
+  --sidebar-foreground: #f8f5ee;
+  --sidebar-accent: #d6b36a;
+  --sidebar-accent-foreground: #070707;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: #d6b36a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: none;
+    overflow-x: hidden;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+
+  /* AURUM Custom Components */
+  .btn {
+    @apply px-10 py-[18px] border border-[rgba(214,179,106,0.35)] text-[#f5e7bf] no-underline uppercase tracking-[4px] text-xs transition-all duration-500 relative overflow-hidden;
+    background: transparent;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #d6b36a;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    z-index: -1;
+  }
+
+  .btn:hover::before {
+    transform: translateX(0);
+  }
+
+  .btn:hover {
+    color: black;
+    box-shadow: 0 0 60px rgba(214, 179, 106, 0.35);
+  }
+
+  .eyebrow {
+    @apply text-[#d6b36a] tracking-[8px] uppercase text-xs mb-7;
+  }
+
+  .label {
+    @apply text-[#d6b36a] uppercase tracking-[6px] text-xs mb-5;
+  }
+
+  .title {
+    @apply font-serif text-[clamp(50px,7vw,100px)] font-light leading-tight;
+  }
+
+  .title span {
+    @apply text-[#f5e7bf] italic;
+  }
+
+  .section-desc {
+    @apply max-w-[650px] mx-auto mt-7 leading-[1.9] text-[rgba(255,255,255,0.55)];
+  }
+
+  .card-category {
+    @apply text-[#d6b36a] text-xs tracking-[5px] uppercase mb-2.5;
+  }
+
+  .card-title {
+    @apply font-serif text-[42px] mb-3;
+  }
+
+  .meta {
+    @apply flex justify-between text-[rgba(255,255,255,0.7)] text-sm;
+  }
+
+  .footer-title {
+    @apply text-[#d6b36a] mb-6 text-xs tracking-[4px] uppercase;
+  }
+
+  .footer-links {
+    @apply list-none;
+  }
+
+  .footer-links li {
+    @apply mb-4;
+  }
+
+  .footer-links a {
+    @apply no-underline text-[rgba(255,255,255,0.6)] transition-colors duration-300 hover:text-[#d6b36a];
+  }
+
+  .cursor {
+    @apply fixed w-2 h-2 bg-[#d6b36a] rounded-full pointer-events-none z-[9999];
+    transition: transform 0.15s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    @apply fixed w-9 h-9 border border-[#d6b36a] rounded-full pointer-events-none z-[9998];
+    transition: transform 0.4s ease, width 0.3s, height 0.3s;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+}
+
+/* Background gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(214, 179, 106, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 50%, rgba(214, 179, 106, 0.05), transparent 35%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animations */
+@keyframes float {
+  from {
+    transform: translateY(-20px) scale(1);
+  }
+  to {
+    transform: translateY(30px) scale(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

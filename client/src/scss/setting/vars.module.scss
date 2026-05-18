@@ -1,0 +1,113 @@
+// AURUM Luxury Jewelry - SCSS Variables
+// Dark Luxury Theme
+
+// Colors
+$bg: #070707;
+$card: #111111;
+$gold: #d6b36a;
+$gold-light: #f5e7bf;
+$text: #f8f5ee;
+$muted: #8d8d8d;
+
+// Semantic Colors
+$primary: $gold;
+$primary-foreground: $bg;
+$secondary: #1a1a1a;
+$secondary-foreground: $gold;
+$accent: $gold;
+$accent-foreground: $bg;
+$destructive: #ff4444;
+$destructive-foreground: $text;
+
+// Text Colors
+$text-primary: $text;
+$text-secondary: rgba(255, 255, 255, 0.7);
+$text-tertiary: rgba(255, 255, 255, 0.55);
+$text-muted: $muted;
+
+// Border Colors
+$border-color: rgba(255, 255, 255, 0.05);
+$border-color-light: rgba(255, 255, 255, 0.08);
+$border-color-hover: rgba(214, 179, 106, 0.35);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+$spacing-4xl: 130px;
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 30px;
+$radius-xl: 50%;
+
+// Typography
+$font-serif: 'Cormorant Garamond', serif;
+$font-sans: 'Inter', sans-serif;
+
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 24px;
+$font-size-3xl: 42px;
+$font-size-4xl: 55px;
+$font-size-5xl: 70px;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$line-height-tight: 0.88;
+$line-height-snug: 0.92;
+$line-height-normal: 1;
+$line-height-relaxed: 1.9;
+$line-height-loose: 2;
+
+// Letter Spacing
+$letter-spacing-tight: 3px;
+$letter-spacing-normal: 4px;
+$letter-spacing-wide: 5px;
+$letter-spacing-wider: 6px;
+$letter-spacing-widest: 8px;
+$letter-spacing-extra: 12px;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.4s ease;
+$transition-slower: 0.5s ease;
+$transition-slowest: 0.8s ease;
+
+// Z-index
+$z-dropdown: 100;
+$z-sticky: 500;
+$z-fixed: 1000;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+$z-cursor: 9998;
+$z-cursor-ring: 9999;
+
+// Breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+$shadow-gold: 0 0 60px rgba(214, 179, 106, 0.35);

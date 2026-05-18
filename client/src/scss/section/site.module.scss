@@ -1,0 +1,47 @@
+@import '../setting/vars';
+@import '../setting/mixin';
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-4xl;
+  align-items: center;
+
+  @include max-width('lg') {
+    @include grid-cols(1);
+  }
+
+  img {
+    width: 100%;
+    height: 780px;
+    @include object-fit-cover;
+    border-radius: $radius-lg;
+
+    @include max-width('lg') {
+      height: 500px;
+    }
+  }
+}
+
+.story-title {
+  font-family: $font-serif;
+  @include text-clamp(55px, 100px);
+  line-height: $line-height-snug;
+  font-weight: $font-weight-light;
+  margin-bottom: $spacing-xl;
+
+  span {
+    color: $gold-light;
+    font-style: italic;
+  }
+}
+
+.story-paragraph {
+  color: $text-secondary;
+  line-height: $line-height-loose;
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

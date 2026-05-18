@@ -1,0 +1,68 @@
+@import '../setting/vars';
+@import '../setting/mixin';
+
+footer {
+  padding: 100px $spacing-xl 60px;
+  border-top: 1px solid $border-color;
+
+  @include max-width('lg') {
+    padding: 100px $spacing-lg 60px;
+  }
+}
+
+.footer-grid {
+  @include grid-cols(4);
+  gap: $spacing-2xl;
+
+  @include max-width('lg') {
+    @include grid-cols(1);
+  }
+}
+
+.footer-logo {
+  font-family: $font-serif;
+  font-size: 30px;
+  letter-spacing: $letter-spacing-extra;
+  color: $gold-light;
+}
+
+.footer-title {
+  color: $gold;
+  margin-bottom: $spacing-lg;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-normal;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+
+  li {
+    margin-bottom: $spacing-md;
+
+    a {
+      text-decoration: none;
+      color: $text-secondary;
+      @include transition(color, $transition-base);
+
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  margin-top: $spacing-4xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border-color;
+  @include flex-between;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  @include max-width('lg') {
+    flex-direction: column;
+  }
+}

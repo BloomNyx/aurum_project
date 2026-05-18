@@ -1,0 +1,219 @@
+@import './vars.scss';
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == '2xl' {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  }
+}
+
+@mixin max-width($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl - 1px) {
+      @content;
+    }
+  }
+}
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Grid
+@mixin grid-cols($cols) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+}
+
+// Text Utilities
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($min, $max) {
+  font-size: clamp($min, 10vw, $max);
+}
+
+@mixin text-uppercase-letter-spacing($spacing) {
+  text-transform: uppercase;
+  letter-spacing: $spacing;
+}
+
+// Transitions
+@mixin transition($property: all, $duration: $transition-base) {
+  transition: $property $duration;
+}
+
+@mixin transition-multiple($properties, $duration: $transition-base) {
+  transition: $properties $duration;
+}
+
+// Hover Effects
+@mixin hover-gold {
+  &:hover {
+    color: $gold-light;
+  }
+}
+
+@mixin hover-scale($scale: 1.06) {
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-translate-y($distance: -12px) {
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// Button Styles
+@mixin button-base {
+  padding: 18px 40px;
+  border: 1px solid $border-color-hover;
+  color: $gold-light;
+  text-decoration: none;
+  @include text-uppercase-letter-spacing($letter-spacing-normal);
+  font-size: $font-size-xs;
+  @include transition(all, $transition-slower);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $gold;
+    transform: translateX(-100%);
+    @include transition(transform, $transition-slower);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $bg;
+    box-shadow: $shadow-gold;
+
+    &::before {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Card Styles
+@mixin card-base {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background: $card;
+  border: 1px solid $border-color;
+  @include transition(all, $transition-slowest);
+
+  &:hover {
+    transform: translateY(-12px);
+    border-color: $border-color-hover;
+  }
+}
+
+// Overlay Gradient
+@mixin overlay-gradient {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+}
+
+// Absolute Positioning
+@mixin absolute-inset {
+  position: absolute;
+  inset: 0;
+}
+
+// Pseudo Element
+@mixin pseudo-element($content: '') {
+  content: $content;
+  position: absolute;
+}
+
+// Animations
+@mixin animation($name, $duration: 1s, $timing: ease, $delay: 0s, $iteration: infinite) {
+  animation: $name $duration $timing $delay $iteration;
+}
+
+// Backdrop Blur
+@mixin backdrop-blur($blur: 20px) {
+  backdrop-filter: blur($blur);
+}
+
+// Filter
+@mixin brightness($value) {
+  filter: brightness($value);
+}
+
+// Opacity
+@mixin opacity($value) {
+  opacity: $value;
+}
+
+// Cursor
+@mixin cursor-none {
+  cursor: none;
+}
+
+// Object Fit
+@mixin object-fit-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

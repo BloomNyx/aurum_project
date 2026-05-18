@@ -1,0 +1,53 @@
+// Global SCSS Imports
+@import './reset';
+@import './vars';
+@import './mixin';
+@import './fonts';
+
+// Section Styles
+@import '../section/header';
+@import '../section/intro';
+@import '../section/contact';
+@import '../section/site';
+@import '../section/skill';
+@import '../section/port';
+@import '../section/footer';
+
+// Global Styles
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $bg;
+  color: $text;
+  font-family: $font-sans;
+  overflow-x: hidden;
+  @include cursor-none;
+}
+
+// Cursor styles
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: $gold;
+  border-radius: $radius-xl;
+  pointer-events: none;
+  z-index: $z-cursor;
+  @include transition(transform, $transition-fast);
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $gold;
+  border-radius: $radius-xl;
+  pointer-events: none;
+  z-index: $z-cursor-ring;
+  @include transition-multiple(transform width height, $transition-slow);
+  transform: translate(-50%, -50%);
+  @include opacity(0.6);
+}

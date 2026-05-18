@@ -1,0 +1,51 @@
+@import '../setting/vars.scss';
+@import '../setting/mixin.scss';
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-fixed;
+  padding: 26px $spacing-xl;
+  @include flex-between;
+  @include backdrop-blur(20px);
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid $border-color;
+
+  @include max-width('lg') {
+    padding: 26px $spacing-lg;
+  }
+}
+
+.logo {
+  font-family: $font-serif;
+  font-size: 30px;
+  letter-spacing: $letter-spacing-extra;
+  color: $gold-light;
+}
+
+.nav-links {
+  @include flex-center;
+  gap: $spacing-2xl;
+  list-style: none;
+
+  li {
+    a {
+      color: $text-secondary;
+      text-decoration: none;
+      font-size: $font-size-xs;
+      letter-spacing: $letter-spacing-tight;
+      text-transform: uppercase;
+      @include transition(color, $transition-base);
+
+      &:hover {
+        color: $gold-light;
+      }
+    }
+  }
+
+  @include max-width('lg') {
+    display: none;
+  }
+}
